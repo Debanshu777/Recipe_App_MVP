@@ -90,6 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="none"
+                android:clipToPadding="false"
                 android:layout_marginTop="10dp"
                 android:layout_below="@id/titleCategory"
                 android:layout_marginLeft="8dp"

@@ -9,9 +9,12 @@ package com.example.recipeapp.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Categories {
+
+public class Categories implements Serializable {
+
 
     @SerializedName("categories")
     @Expose
@@ -24,8 +27,7 @@ public class Categories {
     public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
-
-    public static class Category {
+    public static class Category implements Serializable{
 
         @SerializedName("idCategory")
         @Expose

@@ -7,6 +7,7 @@
 package com.example.recipeapp.view.home;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,7 +25,9 @@ import com.example.recipeapp.adapter.RecyclerViewHomeAdapter;
 import com.example.recipeapp.adapter.ViewPagerHeaderAdapter;
 import com.example.recipeapp.model.Categories;
 import com.example.recipeapp.model.Meals;
+import com.example.recipeapp.view.category.CategoryActivity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
@@ -32,6 +35,8 @@ import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity implements HomeView {
 
+    public static final String EXTRA_CATEGORY = "category";
+    public static final String EXTRA_POSITION = "position";
     @BindView(R.id.viewPagerHeader)
     ViewPager viewPagerMeal;
     @BindView(R.id.recyclerCategory)
@@ -83,7 +88,10 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         homeAdapter.setOnItemClickListener(new RecyclerViewHomeAdapter.ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Toast.makeText(HomeActivity.this, category.get(position).getStrCategory(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this,CategoryActivity.class);
+                intent.putExtra(EXTRA_CATEGORY,(Serializable)category);
+                intent.putExtra(EXTRA_POSITION,position);
+                startActivity(intent);
             }
         });
 
@@ -93,7 +101,5 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public void onErrorLoading(String message) {
         Utils.showDialogMessage(this,"Title",message);
     }
-
-    // TODO 36 Overriding the interface
 
 }

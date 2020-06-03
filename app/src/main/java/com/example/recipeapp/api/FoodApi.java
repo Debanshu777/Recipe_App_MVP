@@ -11,6 +11,7 @@ import com.example.recipeapp.model.Meals;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface FoodApi {
 
@@ -19,4 +20,8 @@ public interface FoodApi {
 
     @GET("categories.php")
     Call<Categories> getCategories();
+
+    @GET("filter.php")
+    Call<Meals> getMealByCategory(@Query("c")String category);
+
 }

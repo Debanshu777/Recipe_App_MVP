@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,7 @@ import com.example.recipeapp.adapter.ViewPagerHeaderAdapter;
 import com.example.recipeapp.model.Categories;
 import com.example.recipeapp.model.Meals;
 import com.example.recipeapp.view.category.CategoryActivity;
+import com.example.recipeapp.view.detail.DetailActivity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -37,6 +39,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     public static final String EXTRA_CATEGORY = "category";
     public static final String EXTRA_POSITION = "position";
+    public static final String EXTRA_DETAIL = "detail";
     @BindView(R.id.viewPagerHeader)
     ViewPager viewPagerMeal;
     @BindView(R.id.recyclerCategory)
@@ -72,7 +75,10 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         viewPagerMeal.setPadding(20,0,150,0);
         headerAdapter.notifyDataSetChanged();
         headerAdapter.setOnItemClickListener((v, position) -> {
-            Toast.makeText(this, meal.get(position).getStrMeal(), Toast.LENGTH_SHORT).show();
+            TextView mealName= v.findViewById(R.id.mealName);
+            Intent intent=new Intent(getApplicationContext(), DetailActivity.class);
+            intent.putExtra(EXTRA_DETAIL,mealName.getText().toString());
+            startActivity(intent);
         });
     }
 

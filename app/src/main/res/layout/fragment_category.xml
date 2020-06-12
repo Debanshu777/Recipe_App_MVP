@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Developed by Haerul Muttaqin
-  Last modified 3/24/19 1:03 PM
-  Subscribe : https://www.youtube.com/haerulmuttaqin 
-  Copyright (c) 2019. All rights reserved
-  -->
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"

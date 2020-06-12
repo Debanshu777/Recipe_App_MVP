@@ -1,9 +1,4 @@
-/*-----------------------------------------------------------------------------
- - Developed by Haerul Muttaqin                                               -
- - Last modified 4/7/19 7:33 PM                                               -
- - Subscribe : https://www.youtube.com/haerulmuttaqin                         -
- - Copyright (c) 2019. All rights reserved                                    -
- -----------------------------------------------------------------------------*/
+
 package com.example.recipeapp.view.detail;
 
 import android.content.Intent;
